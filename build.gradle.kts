@@ -4,20 +4,6 @@ plugins {
 
 group = "app.revanced"
 
-val githubUsername: String = project.findProperty("gpr.user") as? String ?: System.getenv("GH_ACTOR")
-val githubPassword: String = project.findProperty("gpr.key") as? String ?: System.getenv("GH_TOKEN")
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-    maven {
-        url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
-        credentials {
-            username = githubUsername
-            password = githubPassword
-        }
-    }
-}
 
 dependencies {
     implementation("app.revanced:revanced-patcher:6.4.2")
